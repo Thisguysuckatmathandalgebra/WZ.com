@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('background.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .creation-tools {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .creation-tools h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .tool {
+            margin-bottom: 10px;
+        }
+
+        .tool label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .tool input, .tool textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .tool button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .tool button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="creation-tools">
+        <h2>Game Creation Tools</h2>
+        <div class="tool">
+            <label for="game-title">Game Title:</label>
+            <input type="text" id="game-title" name="game-title">
+        </div>
+        <div class="tool">
+            <label for="game-description">Game Description:</label>
+            <textarea id="game-description" name="game-description" rows="4"></textarea>
+        </div>
+        <div class="tool">
+            <label for="game-file">Upload Game File:</label>
+            <input type="file" id="game-file" name="game-file">
+        </div>
+        <div class="tool">
+            <button onclick="submitGame()">Submit Game</button>
+        </div>
+    </div>
+
+    <script>
+        function submitGame() {
+            const titleInput = document.getElementById('game-title');
+            const descriptionInput = document.getElementById('game-description');
+            const fileInput = document.getElementById('game-file');
+
+            // Clear existing error messages
+            const existingErrorMessages = document.querySelectorAll('.error-message');
+            existingErrorMessages.forEach(message => message.remove());
+
+            let hasError = false;
+
+            // Check if title is empty
+            if (!titleInput.value.trim()) {
+                appendErrorMessage(titleInput, 'Please fill in the title');
+                hasError = true;
+            }
+
+            // Check if description is empty
+            if (!descriptionInput.value.trim()) {
+                appendErrorMessage(descriptionInput, 'Please fill in the description');
+                hasError = true;
+            }
+
+            // Check if file is selected
+            if (!fileInput.files[0]) {
+                appendErrorMessage(fileInput, 'Please select a file');
+                hasError = true;
+            }
+
+            // If no errors, record responses and redirect
+            if (!hasError) {
+                alert('Game submitted successfully!');
+                window.location.href = '/HTML/MAINMENU.html';
+            }
+        }
+
+        function appendErrorMessage(element, message) {
+            const errorText = document.createElement('p');
+            errorText.textContent = message;
+            errorText.className = 'error-message';
+            element.parentNode.insertBefore(errorText, element.nextSibling);
+        }
+    </script>
+</body>
+</html>

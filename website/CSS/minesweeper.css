@@ -1,0 +1,45 @@
+.container {
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.hidden {
+    background-color: #ccc;
+}
+
+.mine {
+    background-color: #f00;
+    color: #fff;
+    font-weight: bold;
+}
+
+.number {
+    background-color: #fff;
+}
+
+.revealed {
+    background-color: #eee;
+}
+
+.animation {
+    animation: reveal 0.2s ease-in-out;
+}
+
+@keyframes reveal {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}

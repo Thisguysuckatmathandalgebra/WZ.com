@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="/CSS/tictactoe.css">
+</head>
+<body>
+    <div id="game">
+    <div id="status">Choose your difficulty:</div>
+    <div id="difficulty-buttons">
+        <button onclick="setDifficulty('Normal')">Normal</button>
+        <button onclick="setDifficulty('Medium')">Medium</button>
+        <button onclick="setDifficulty('Hard')">Hard</button>
+        <button onclick="setDifficulty('Insanity')">Insanity</button>
+    </div>
+    <div id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+        <div>
+        <button id="reset">Reset Game</button>
+        <button id="winlist">Win List</button>
+        <button id="losytwinlist">Loser Win List</button>
+        <button id="gamedrawlist">Game Draw List</button>
+    </div>
+</div>
+<button id="returnButton">Return to Main Page</button>
+    <script src="/JS/tictactoe.js"></script>
+    <script src="/JS/reback.js"></script>
+</body>
+</html>

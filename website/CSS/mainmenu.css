@@ -1,0 +1,231 @@
+/* CSS */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #333;
+    --button-hover-color: #f4f4f4;
+    --background-color: #f8f8f8;
+    --button-background: #fff;
+    --button-border-color: var(--secondary-color);
+    --button-color: var(--secondary-color);
+    --transition-duration: 0.3s;
+    --fade-duration: 0.5s;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    opacity: 0;
+    transition: opacity var(--fade-duration);
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: var(--secondary-color);
+}
+
+.registration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.registration a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: 0 5px;
+    transition: color var(--transition-duration);
+}
+
+.registration a:hover {
+    color: var(--primary-color);
+}
+
+.header {
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.create-section {
+    margin-top: 40px;
+    position: relative;
+}
+
+.create-section p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.create-button {
+    border: 2px solid var(--button-border-color);
+    background-color: var(--button-background);
+    color: var(--button-color);
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration), transform var(--transition-duration);
+    position: relative;
+    display: inline-block;
+}
+
+.create-button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-3px);
+}
+
+.button-container {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Adjusted transition duration */
+}
+
+.button-container a {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border: 2px solid var(--button-border-color);
+    border-radius: 4px;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.button-container a:hover {
+    background-color: var(--button-hover-color);
+}
+
+.qa-section {
+    margin-top: 40px;
+    text-align: left;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.qa-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.bottom-section {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+}
+
+/* Dark theme and toggle */
+.dark-theme {
+    --background-color: #333;
+    --button-background: #555;
+    --button-border-color: #fff;
+    --button-color: #fff;
+    --secondary-color: #eee;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+#themeToggle:hover {
+    background-color: var(--button-hover-color);
+}
+
+.icon-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+.settings-menu {
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 10px; /* Adjusted margin to create space between menu and icon */
+    opacity: 0; /* Initially hide the menu */
+    transform: translateY(-10px); /* Slide up the menu */
+    transition: opacity var(--fade-duration), transform var(--fade-duration); /* Apply transition */
+}
+
+.icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: transform var(--transition-duration);
+    margin-right: 5px; /* Adjusted margin to create space between icon and menu */
+}
+
+.icon:hover {
+    transform: rotate(90deg) scale(1.2); /* Adjusted icon hover effect */
+}
+
+.icon-container:hover .settings-menu {
+    display: block;
+    opacity: 1; /* Fade in the menu */
+    transform: translateY(0); /* Slide down the menu */
+    transition: opacity var(--transition-duration), transform var(--transition-duration); /* Apply transition */
+}
+
+.settings-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.settings-menu li {
+    margin-bottom: 10px;
+}
+
+.settings-menu li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+    transition: color var(--transition-duration);
+}

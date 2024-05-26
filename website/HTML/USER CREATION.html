@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Creations</title>
+    <script>
+        function recordSubmission() {
+            var gameFile = document.getElementById("gameFile").value;
+            var listItem = document.createElement("li");
+            listItem.textContent = gameFile;
+            var submissionsList = document.getElementById("submissionsList");
+            submissionsList.appendChild(listItem);
+        }
+    </script>
+</head>
+<body>
+    <h1>Game Submission Recorder</h1>
+    <form action="" method="post" enctype="multipart/form-data" onsubmit="recordSubmission(); return false;">
+        <label for="gameFile">Game File:</label>
+        <input type="file" id="gameFile" name="gameFile" required>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Submissions:</h2>
+    <ul id="submissionsList"></ul>
+    <p>2048 game: <a href="2048.html">Play</a></p>
+    <p>Tic-Tac-Toe game: <a href="tictactoe.html">Play</a></p>
+    <p>Minesweeper game: <a href="minesweeper.html">Play</a></p>>
+</body>
+</html>
